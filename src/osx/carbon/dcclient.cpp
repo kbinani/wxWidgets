@@ -93,7 +93,10 @@ wxWindowDCImpl::~wxWindowDCImpl()
         // this must not necessarily be the current context, we must restore the state of the
         // cg we started with above (before the CGContextTranslateCTM call)
         CGContextRef cg = (CGContextRef) m_window->MacGetCGContextRef();
-        CGContextRestoreGState(cg);
+        if ( cg )
+        {
+            CGContextRestoreGState(cg);
+        }
     }
 }
 
