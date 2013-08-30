@@ -154,6 +154,7 @@ public:
     static void MacSetCommonMenuBar(wxMenuBar* menubar) { s_macCommonMenuBar=menubar; }
     static wxMenuBar* MacGetCommonMenuBar() { return s_macCommonMenuBar; }
 
+    wxMenu * GetAppleMenu() { return m_appleMenu; }
 
     static WXHMENU MacGetWindowMenuHMenu() { return s_macWindowMenuHandle ; }
 protected:
