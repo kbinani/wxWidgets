@@ -843,5 +843,10 @@ WXDLLIMPEXP_CORE bool wxYieldIfNeeded();
                        WXHINSTANCE module = 0);
 #endif // __WINDOWS__
 
+#ifdef wxOSX_USE_COCOA
+// Return whether input context is enabled.
+bool wxIsInputContextEnabled();
+#endif // wxOSX_USE_COCOA
+
 #endif
     // _WX_UTILSH__

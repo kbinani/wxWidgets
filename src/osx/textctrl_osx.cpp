@@ -398,6 +398,10 @@ void wxTextCtrl::OnChar(wxKeyEvent& event)
     switch ( key )
     {
         case WXK_RETURN:
+            if ( wxIsInputContextEnabled() )
+            {
+                break;
+            }
             if (m_windowStyle & wxTE_PROCESS_ENTER)
             {
                 wxCommandEvent event(wxEVT_TEXT_ENTER, m_windowId);
@@ -430,6 +434,10 @@ void wxTextCtrl::OnChar(wxKeyEvent& event)
             break;
 
         case WXK_TAB:
+            if ( wxIsInputContextEnabled() )
+            {
+                break;
+            }
             if ( !(m_windowStyle & wxTE_PROCESS_TAB))
             {
                 int flags = 0;

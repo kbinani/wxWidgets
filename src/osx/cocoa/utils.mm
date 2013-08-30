@@ -483,6 +483,20 @@ wxBitmap wxWindowDCImpl::DoGetAsBitmap(const wxRect *subrect) const
     return bitmap;
 }
 
+bool wxIsInputContextEnabled()
+{
+    NSTextInputContext *context = [NSTextInputContext currentInputContext];
+    if ( context )
+    {
+        id<NSTextInputClient> client = [context client];
+        return [client hasMarkedText];
+    }
+    else
+    {
+        return false;
+    }
+}
+
 #endif // wxUSE_GUI
 
 #endif // wxOSX_USE_COCOA
